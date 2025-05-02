@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         previousCalculationTextView.text = "$firstNumber $operation $secondNumber ="
         isNewOperation=true
         }
-        catch(e:Exception) {
+        catch(e:NumberFormatException) {
             resultTextView.text = "Error"
             return
         }
@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun back() {
         val currentText = resultTextView.text.toString()
-        if (currentText.length > 1 && currentText!= "Error") {
+        if (currentText.length > 1 && currentText!= "Infinity") {
             resultTextView.text = currentText.substring(0, currentText.length - 1)
         }
         else{
